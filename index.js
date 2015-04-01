@@ -35,8 +35,6 @@ var primitives = [
 ];
 
 module.exports = function(opts) {
-  this.texturePath = texturePath;
-  
   // these settings will be used to create an in-memory
   // world on the server and will be sent to all
   // new clients when they connect
@@ -206,5 +204,5 @@ function sendInitialChunks(emitter) {
   emitter.emit('noMoreChunks', true)
 }
 
-return this
+return game
 }
