@@ -184,5 +184,5 @@ module.exports = function(opts) {
     emitter.emit('noMoreChunks', true)
   }
   
-  return server
+  return this
 }
