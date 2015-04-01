@@ -11,8 +11,6 @@ var texturePath = require('painterly-textures')(__dirname)
 var voxel = require('voxel')
 
 module.exports = function(opts) {
-  console.log('server: ',opts);
-  
   // these settings will be used to create an in-memory
   // world on the server and will be sent to all
   // new clients when they connect
