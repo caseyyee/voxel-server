@@ -10,7 +10,8 @@ var engine = require('voxel-engine')
 var texturePath = require('painterly-textures')(__dirname)
 var voxel = require('voxel')
 
-module.exports = function() {
+module.exports = function(opts) {
+  console.log('server: ',opts);
   
   // these settings will be used to create an in-memory
   // world on the server and will be sent to all
@@ -31,7 +32,9 @@ module.exports = function() {
   }
   
   var game = engine(settings)
-  var server = http.createServer(ecstatic(path.join(__dirname, 'www')))
+
+  var server = (opts.server) ? opts.server : http.createServer(ecstatic(path.join(__dirname, 'www')))
+  
   var wss = new WebSocketServer({server: server})
   var clients = {}
   var chunkCache = {}
